@@ -6,7 +6,7 @@ public class Main {
     System.out.println("----------------------");
     System.out.println("Welcome to TaTeTi game");
     System.out.println("----------------------");
-
+    
     Board board = new Board();
 
     Game game = new Game(board);

@@ -57,6 +57,18 @@ public class Board {
     System.out.print(linea3[1] + " | ");
     System.out.println(linea3[2]);
    }
+
+   public char mostrarContenido(int contenido){
+  
+    switch (contenido) {
+      case 1:
+        return linea1[0];
+      case 2:
+        return linea1[1];
+      default:
+        return '-';
+    }
+   }
    
 // Estudiar matrices para mejorar el tablero
 }

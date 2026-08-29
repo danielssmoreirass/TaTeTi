@@ -14,12 +14,19 @@ public class Game {
             String jugador2 = "O";
             boolean juegoFinalizado = false;
     Scanner keyboard = new Scanner(System.in);
-
+    
     board.mostrar();
+
     while (juegoFinalizado == false) {
         System.out.println("Jugador 1 elije una casilla");
-        int movimiento1 = keyboard.nextInt();
-        board.cambiarCasilla(movimiento1, 'X');
+        char movimiento1 = keyboard.next().charAt(0);
+            if (movimiento1 !=  board.mostrarContenido(1)){
+                board.cambiarCasilla(movimiento1, 'X');
+            }
+            if(movimiento1 == board.mostrarContenido(1) );{
+                System.out.println("Casilla ocupada, elije otra");
+            }
+        
         board.mostrar();
         }
     }
