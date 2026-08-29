@@ -1,74 +1,110 @@
 package games;
-import java.util.Scanner;
 
-// se ocupa del tablero.
-public class Board {
-    char[] linea1 = {'1','2','3'}; 
+//se ocupa del tablero.
 
-    char[] linea2 = {'4','5','6'};
+	public class Board{
 
-    char[] linea3 = {'7','8','9'};
-   //line1[0] = "x"; //Modo de modificar el array
+		
+	    // tabla de 3x3 para el tablero
+	    private char[][] matriz = {
+	        {'1', '2', '3'},
+	        {'4', '5', '6'},
+          {'7', '8', '9'}
+	    };
+  
 
-   public void cambiarCasilla(int casilla,char jugador){
-    switch (casilla) {
-      case 1:
-        linea1[0] = jugador;
-        break;
-      case 2:
-        linea1[1] = jugador;
-        break;
-      case 3:
-        linea1[2] = jugador;
-        break;
-      case 4:
-        linea2[0] = jugador;
-        break;
-      case 5:
-        linea2[1] = jugador;
-        break;
-      case 6:
-        linea2[2] = jugador;
-        break;
-      case 7:
-        linea3[0] = jugador;
-        break;
-      case 8:
-        linea3[1] = jugador;
-        break;
-      case 9:
-        linea3[2] = jugador;
-        break;
+	    public boolean cambiarCasilla(int casilla, char jugador) {
+	        if (casilla < 1 || casilla > 9) {
+	            System.out.println("Casilla invalida. Elige un numero entre 1 y 9.");
+	            return false;
+	        }
+
+	        //paso numero de casilla (1-9) a coordenadas de fila y columna
+	        int fila = (casilla - 1) / 3;
+	        int columna = (casilla - 1) % 3;
+
+	        // revisar que la casilla no haya sido usada
+	        if (matriz[fila][columna] == 'X' || matriz[fila][columna] == 'O') {
+	            System.out.println("Esa casilla ya esta ocupada. Intenta de nuevo.");
+	            return false;
+	        }
+
+	        matriz[fila][columna] = jugador;
+	        return true;
+	    }
+
+	    // mostrar el tablero actualizado
+	    public void mostrar() {
+	        System.out.println();
+	        for (int i = 0; i < 3; i++) {
+	            System.out.println(" " + matriz[i][0] + " | " + matriz[i][1] + " | " + matriz[i][2]);
+	            if (i < 2) {
+	                System.out.println("---+---+---");
+	            }
+	        }
+	        System.out.println();
+	    }
+    // ver si hay un ganador o si se completaron las casillas
+    public boolean ganador(char jugador) {
+    	
+        // revisar filas y columnas
+        for (int i = 0; i < 3; i++) {
+            if ((matriz[i][0] == jugador && matriz[i][1] == jugador && matriz[i][2] == jugador) ||
+                (matriz[0][i] == jugador && matriz[1][i] == jugador && matriz[2][i] == jugador)) {
+                return true;
+            }
+        }
+        // verificar diagonales
+        if ((matriz[0][0] == jugador && matriz[1][1] == jugador && matriz[2][2] == jugador) ||
+            (matriz[0][2] == jugador && matriz[1][1] == jugador && matriz[2][0] == jugador)) {
+            return true;
+        }
+        return false;
     }
-    }
 
-   public void mostrar(){
-    System.out.print(linea1[0] + " | ");
-    System.out.print(linea1[1] + " | ");
-    System.out.println(linea1[2]);
+    // mostrarTablero y mostrarContenido ya fueron adaptados a la nueva matriz
+   public void mostrarTablero(){
+    System.out.print(matriz[0] [0] + " | ");
+    System.out.print(matriz[0] [1]+ " | ");
+    System.out.println(matriz [0][2]);
    
     
 
-    System.out.print(linea2[0] + " | ");
-    System.out.print(linea2[1] + " | ");
-    System.out.println(linea2[2]);
+    System.out.print(matriz [1][0] + " | ");
+    System.out.print(matriz [1][1] + " | ");
+    System.out.println(matriz [1][2]);
 
-    System.out.print(linea3[0] + " | ");
-    System.out.print(linea3[1] + " | ");
-    System.out.println(linea3[2]);
+    System.out.print(matriz [2][0] + " | ");
+    System.out.print(matriz[2] [1] + " | ");
+    System.out.println(matriz[2] [2]);
    }
 
-   public char mostrarContenido(int contenido){
-  
+   public char mostrarContenido(int contenido) {
+
     switch (contenido) {
-      case 1:
-        return linea1[0];
-      case 2:
-        return linea1[1];
-      default:
-        return '-';
+        case 1:
+            return matriz[0][0];
+        case 2:
+            return matriz[0][1];
+        case 3:
+            return matriz[0][2];
+        case 4:
+            return matriz[1][0];
+        case 5:
+            return matriz[1][1];
+        case 6:
+            return matriz[1][2];
+        case 7:
+            return matriz[2][0];
+        case 8:
+            return matriz[2][1];
+        case 9:
+            return matriz[2][2];
+        default:
+            return '-';
     }
-   }
+}
+
+} 
    
 // Estudiar matrices para mejorar el tablero
-}
