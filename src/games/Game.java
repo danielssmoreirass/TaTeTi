@@ -10,24 +10,31 @@ public class Game {
     }
 
     public void iniciar(){
-            String jugador1 = "X";
-            String jugador2 = "O";
+            char jugador = 'X';
             boolean juegoFinalizado = false;
-    Scanner keyboard = new Scanner(System.in);
-    
-    board.mostrar();
-
-    while (juegoFinalizado == false) {
-        System.out.println("Jugador 1 elije una casilla");
-        char movimiento1 = keyboard.next().charAt(0);
-            if (movimiento1 !=  board.mostrarContenido(1)){
-                board.cambiarCasilla(movimiento1, 'X');
+            
+            Scanner keyboard = new Scanner(System.in);
+            
+            while(juegoFinalizado == false) {
+            	board.mostrar();
+            	
+            	System.out.println("Jugador (" + jugador + ") ingrese jugada");
+            	int jugada = keyboard.nextInt();
+            	
+            	board.cambiarCasilla(jugada, jugador);
+            	
+            	juegoFinalizado = board.ganador(jugador);
+            	 
+            	if (juegoFinalizado == true) {
+            		System.out.println("\nEl ganador es: " + jugador);
+            	}
+            	
+            	if(jugador == 'X') {
+            		jugador = 'O';
+            	} else {
+            		jugador = 'X';
+            	}
             }
-            if(movimiento1 == board.mostrarContenido(1) );{
-                System.out.println("Casilla ocupada, elije otra");
-            }
-        
-        board.mostrar();
-        }
+           keyboard.close();
     }
 }
