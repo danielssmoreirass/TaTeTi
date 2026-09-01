@@ -35,14 +35,22 @@ package games;
 
 	    // mostrar el tablero actualizado
 	    public void mostrar() {
-	        System.out.println();
-	        for (int i = 0; i < 3; i++) {
-	            System.out.println(" " + matriz[i][0] + " | " + matriz[i][1] + " | " + matriz[i][2]);
-	            if (i < 2) {
-	                System.out.println("---+---+---");
-	            }
-	        }
-	        System.out.println();
+	    	System.out.println();
+			System.out.println("    _______________ ");
+			System.out.println("   |\\_____________/|");
+			for(int i = 0; i < 3; i++) {
+				
+				System.out.println("   | | " + matriz[i][0] + " | " + matriz[i][1] + " | " + matriz[i][2] + " | |");
+				
+				if (i < 2) {
+					System.out.println("   | |---+---+---| |");
+				}
+			}
+			System.out.println("   |/‾‾‾‾‾‾‾‾‾‾‾‾‾\\|");
+		
+			System.out.println("    ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ ");
+			
+			System.out.println();        
 	    }
     // ver si hay un ganador o si se completaron las casillas
     public boolean ganador(char jugador) {
