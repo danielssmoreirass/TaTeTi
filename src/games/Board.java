@@ -48,7 +48,7 @@ package games;
 			}
 			System.out.println("   |/_____________\\|");
 		
-			System.out.println("   -----------------");
+			System.out.println("   |_______________|");
 			
 			System.out.println();        
 	    }
