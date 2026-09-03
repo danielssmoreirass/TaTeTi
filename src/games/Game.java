@@ -29,20 +29,24 @@ public class Game {
             	System.out.println("Jugador (" + jugador + ") ingrese jugada");
             	int jugada = keyboard.nextInt();
             	
-            	board.cambiarCasilla(jugada, jugador);
-            	
-            	juegoFinalizado = board.ganador(jugador);
-            	 
-            	if (juegoFinalizado == true) {
-            		System.out.println("\nEl ganador es: " + jugador);
-            	}
-            	
-            	if(jugador == 'X') {
-            		jugador = 'O';
-            	} else {
-            		jugador = 'X';
-            	}
-            }
-           keyboard.close();
+				boolean movimientoExitoso = board.cambiarCasilla(jugada, jugador);
+				if (movimientoExitoso){
+					juegoFinalizado = board.ganador(jugador);
+
+					if(juegoFinalizado){
+						board.mostrar();
+						System.out.println("El ganador es: " + jugador + "!!");
+					}else{
+						if (jugador == 'X'){
+							jugador = 'O';
+						}else {
+							jugador = 'X';
+						}
+					}
+				}
+				
+				
     }
+	keyboard.close();
+}
 }
