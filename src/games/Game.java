@@ -29,6 +29,7 @@ public class Game {
             	System.out.println("Jugador (" + jugador + ") ingrese jugada");
             	int jugada = keyboard.nextInt();
             	
+				// While modificado para que tome en cuenta si un jugador elije una casilla ocupada
 				boolean movimientoExitoso = board.cambiarCasilla(jugada, jugador);
 				if (movimientoExitoso){
 					juegoFinalizado = board.ganador(jugador);
