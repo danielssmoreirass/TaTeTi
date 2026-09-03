@@ -4,11 +4,19 @@ import java.util.Scanner;
 // se ocupa de la partida: turnos, while, comprobar si terminó, etc.
 public class Game {
     private Board board;
+    
+    // Este es el dado aun no se usa.
+    public int Dado(int num) {
+		 num = (int) (Math.random() * 6 + 1);
+		 
+		 return num;
+	}
+    
 
     public Game(Board board) {
         this.board = board;
     }
-
+    
     public void iniciar(){
             char jugador = 'X';
             boolean juegoFinalizado = false;
