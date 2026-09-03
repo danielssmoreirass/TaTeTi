@@ -9,7 +9,7 @@ package games;
 	    private char[][] matriz = {
 	        {'1', '2', '3'},
 	        {'4', '5', '6'},
-          {'7', '8', '9'}
+            {'7', '8', '9'}
 	    };
   
 
@@ -107,4 +107,3 @@ package games;
 
 } 
    
-// Estudiar matrices para mejorar el tablero
