@@ -46,9 +46,9 @@ package games;
 					System.out.println("   | |---+---+---| |");
 				}
 			}
-			System.out.println("   |/_____________\\|");
+			System.out.println("   |/‾‾‾‾‾‾‾‾‾‾‾‾‾\\|");
 		
-			System.out.println("   |_______________|");
+			System.out.println("    ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ ");
 			
 			System.out.println();        
 	    }
